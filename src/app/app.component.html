@@ -12,4 +12,83 @@
   <h2 class="text-danger">user not added</h2>
 </ng-template>
 
+<hr>
+ngfor
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>SlNo</td>
+      <td>Name</td>
+      <td>Contact Number</td>
+      <td>Is Even</td>
+      <td>Is Odd</td>
+      <td>Is Last Element</td>
+    </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of contacts; index as idx; even as e; odd as o; last as l">
+  <td>{{ idx }}</td>
+  <td>{{item.fname}} {{item.lname}}</td>
+  <td>{{item.number}}</td>
+  <td>{{ e }}</td>
+  <td>{{ o }}</td>
+  <td>{{ l }}</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+ngswitch
+<br>
+<div [ngSwitch]="superHero">
+  <div *ngSwitchCase="'Tony Stark'">Tony Stark - ironman</div>
+  <div *ngSwitchCase="'Hulk'">Hulk - Gaint Green Man</div>
+  <div *ngSwitchCase="'drstrange'">Dr Strange - TimeTravel</div>
+  <div *ngSwitchDefault>no power available</div>
+</div>
+<hr>
+ngstyle
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <td>SlNo</td>
+      <td>Name</td>
+      <td>Contact Number</td>
+
+    </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of contacts; index as idx; even as e;" [ngStyle]="{'background-color':e?'red':'blue', 'color':'white'}">
+  <td>{{ idx }}</td>
+  <td>{{item.fname}} {{item.lname}}</td>
+  <td>{{item.number}}</td>
+
+</tr>
+</tbody>
+</table>
+<hr>
+ngclass
+<br>
+<div [ngClass]="'c1'"> this is ngclass example</div>
+<table class="table">
+  <thead>
+    <tr>
+      <td>SlNo</td>
+      <td>Name</td>
+      <td>Contact Number</td>
+
+    </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of contacts; index as idx; even as e;" [ngClass]="e?'c1 f6':'c2 f12'">
+  <td>{{ idx }}</td>
+  <td>{{item.fname}} {{item.lname}}</td>
+  <td>{{item.number}}</td>
+
+</tr>
+</tbody>
+</table>
 <router-outlet></router-outlet>
